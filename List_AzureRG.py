@@ -5,6 +5,9 @@ List Azure Resource Groups using "Run As" Account
 
 import azure.mgmt.resource
 import automationassets
+# import sys
+# sys.setdefaultencoding("utf-8")
+# import site
 
 def get_automation_runas_credential(runas_connection):
     """ Returns credentials to authenticate against Azure resource manager """
@@ -45,5 +48,7 @@ resource_client = azure.mgmt.resource.ResourceManagementClient(
 
 # Get list of resource groups and print them out
 groups = resource_client.resource_groups.list()
+print(groups,"****************")
 for group in groups:
-    print group.name.encode('utf-8')
+    print(group.name.encode('utf-8'))
+    
